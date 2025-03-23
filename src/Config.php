@@ -7,7 +7,6 @@ class Config
     public static function settings(): array
     {
         return [
-            'enabled' => true,
             'strict' => false,
             'debug' => true,
             'sp' => [
@@ -20,7 +19,9 @@ class Config
                     'url' => 'https://yourwebsite.com/logout.php',
                     'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
                 ),
-                'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+                'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+                'x509cert' => '',
+                'privateKey' => ''
             ],
             'idp' => [
                 'entityId' => 'urn:idctechops.us.auth0.com`',

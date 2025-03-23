@@ -51,24 +51,29 @@ class Auth
     /**
      * @throws Error
      */
-    public function logout(bool $shouldLogout = true): void
+    public function logout(string $email, bool $shouldLogout = true): void
     {
         if (! $shouldLogout) {
             return;
         }
 
         $auth = $this->auth();
-
         $nameId = $auth->getNameId();
         $attributes = $auth->getAttributes();
 
-        $auth->logout();
+        $auth->logout(
+            nameId: $email,
+            nameIdFormat: $auth->getSettings()->getSPData()['NameIDFormat'],
+        );
 
         if ($this->handleLogout) {
             ($this->handleLogout)($nameId, $attributes);
         }
     }
 
+    /**
+     * @throws Error
+     */
     public function metadata(): string
     {
         return $this->auth()->getSettings()->getSPMetadata();
@@ -92,6 +97,18 @@ class Auth
 
         if ($this->handleResponse) {
             ($this->handleResponse)($nameId, $attributes);
+        }
+    }
+
+    /**
+     * @throws Error
+     */
+    public function processSlo(): void
+    {
+        $this->auth()->processSLO();
+
+        if ($this->handleLogout) {
+            ($this->handleLogout)();
         }
     }
 
