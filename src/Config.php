@@ -11,13 +11,13 @@ class Config
             'strict' => false,
             'debug' => true,
             'sp' => [
-                'entityId' => 'idctechops.com',
+                'entityId' => 'yourwebsite.com',
                 'assertionConsumerService' => [
-                    'url' => 'https://idctechops.test/acs.php',
+                    'url' => 'https://yourwebsite.com/acs.php',
                     'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
                 ],
                 'singleLogoutService' => array (
-                    'url' => 'https://idctechops.test/logout.php',
+                    'url' => 'https://yourwebsite.com/logout.php',
                     'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
                 ),
                 'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
@@ -25,11 +25,11 @@ class Config
             'idp' => [
                 'entityId' => 'urn:idctechops.us.auth0.com`',
                 'singleSignOnService' => [
-                    'url' => 'https://idctechops.us.auth0.com/samlp/gMMoF7Repd1S60q5LUEz6e0olokWOlWE',
+                    'url' => '',
                     'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
                 ],
                 'singleLogoutService' => [
-                    'url' => 'https://idctechops.us.auth0.com/samlp/gMMoF7Repd1S60q5LUEz6e0olokWOlWE/logout',
+                    'url' => '',
                     'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
                 ],
                 'x509cert' => '',
